@@ -8,9 +8,9 @@ var Reporter_html = function(options) {
     var _defaultOutputFile = path.resolve(process.cwd(), './_test-output', 'html-report.html');
     options.outputFile = options.outputFile || _defaultOutputFile;
 
-    var screenshotsFolder= "_test-output";
+    var screenshotsFolder= "./_test-output/screenhots";
 
-    fs.mkdirSync(screenshotFolder);
+    //fs.mkdirSync(screenshotFolder);
 
     initOutputFile(options.outputFile);
     options.appDir = options.appDir ||  './';
@@ -34,9 +34,9 @@ var Reporter_html = function(options) {
         log('Suite ' + _currentSuite.status + ': ' + suite.description, -1);
     };
 
-    this.specStarted = function(spec) {
-
-    };
+    // this.specStarted = function(spec) {
+    //
+    // };
 
     this.specDone = function(spec) {
         var currentSpec = {
@@ -52,6 +52,7 @@ var Reporter_html = function(options) {
         browser.takeScreenshot().then(function (png) {
             var screenshotPath;
             screenshotPath = path.join(screenshotFolder, currentSpec.screenshot)
+            ensureDirectoryExistence(screenshotPath);
             writeScreenshot(png, screenshotPath);
         });
             _currentSuite.specs.push(currentSpec);
