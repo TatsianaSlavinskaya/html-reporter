@@ -1,0 +1,15 @@
+{
+  "name": "html-reporter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "reporter.js",
+  "dependencies": {
+    "canonical-path": "^0.0.2",
+    "lodash": "^4.16.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+
+}
