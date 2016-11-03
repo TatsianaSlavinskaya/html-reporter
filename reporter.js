@@ -143,4 +143,4 @@ var Reporter_html = function(options) {
     }
 };
 
-module.exports = Reporter;
+module.exports = Reporter_html;
